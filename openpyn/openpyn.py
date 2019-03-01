@@ -917,7 +917,6 @@ using it to update DNS Resolver Entries", detected_os)
             def run_openvpn(*args):
                 cmdline = [
                     "sudo", "openvpn",
-                    "--redirect-gateway",
                     "--auth-retry", "nointeract",
                     "--config", vpn_config_file,
                     "--auth-user-pass", __basefilepath__ + "credentials",
@@ -970,13 +969,13 @@ using it to update DNS Resolver Entries", detected_os)
                                     "Cannot open TUN/TAP dev /dev/net/tun: No such file or directory")
                                 return 1
                 subprocess.run(
-                    ["sudo", "openvpn", "--redirect-gateway", "--auth-retry",
+                    ["sudo", "openvpn", "--auth-retry",
                      "nointeract", "--config", vpn_config_file, "--auth-user-pass",
                      __basefilepath__ + "credentials"]
                     + openvpn_options.split(), check=True)
             else:
                 subprocess.run(
-                    ["sudo", "openvpn", "--redirect-gateway", "--auth-retry",
+                    ["sudo", "openvpn", "--auth-retry",
                      "nointeract", "--config", vpn_config_file, "--auth-user-pass",
                      __basefilepath__ + "credentials",
                      "--management", "127.0.0.1", "7015", "--management-up-down"]
