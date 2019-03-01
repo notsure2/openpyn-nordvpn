@@ -865,7 +865,6 @@ don't worry running 'openpyn --update' for you :)", vpn_config_file)
 openpyn would have connected to server: " + server + " on port: " + port + " with 'silent' mode: " + str(silent).lower())
         return 0
 
-    kill_vpn_processes()   # kill existing OpenVPN processes
     kill_management_client()
     logger.success("CONNECTING TO SERVER " + server + " ON PORT " + port)
 
